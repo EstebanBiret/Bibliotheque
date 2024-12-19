@@ -1,0 +1,10 @@
+<div class="home-container">
+  <img class="background-image" src="https://th.bing.com/th/id/OIG1.PWLOxD_h67BRSZhQEL0S?pid=ImgGn" alt="Image d'arrière-plan">
+  <div class="content">
+    <button id="discover" (click)="redirectToLivres()">Découvrir les livres</button><br><br>
+    <div *ngIf="!isSessionId">
+      <button id="connect" (click)="redirectToLogin()">Se connecter</button><br><br>
+    </div>
+    <button id="connect-admin" (click)="redirectToAdmin()">Interface Admin</button>
+  </div>
+</div>

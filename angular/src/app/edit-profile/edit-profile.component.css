@@ -1,0 +1,40 @@
+.edit-profile-container {
+  width:30%;
+  max-width: 600px;
+  max-height: 70vh;
+  overflow-y: auto;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn-retour {
+  cursor: pointer;
+  margin-left:5px;
+  margin-right:5px;
+}
+
+#enregistrer {
+  text-align:center;
+}
+
+.loading-message {
+  text-align: center;
+  color: #555;
+  font-style: italic;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}

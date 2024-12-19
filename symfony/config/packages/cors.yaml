@@ -1,0 +1,8 @@
+# config/packages/cors.yaml
+nelmio_cors:
+  paths:
+    '^/api/':
+      allow_origin: ['http://localhost:4200']
+      allow_methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'DELETE']
+      allow_headers: ['Content-Type', 'Authorization']
+      max_age: 3600

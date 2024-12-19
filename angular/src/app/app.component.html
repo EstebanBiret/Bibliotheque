@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">La Sainte Bibliothèque</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/livres">Livres</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/categories">Catégories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/auteurs">Auteurs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/recherche"> Rechercher <img src="assets/loupe.png" width="20px" alt="Loupe">
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mon compte -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a *ngIf="isSessionId()" class="nav-link" routerLinkActive="active" routerLink="/compte">Mon compte</a>
+          <a *ngIf="!isSessionId()" class="nav-link" routerLinkActive="active" routerLink="/connexion">Se connecter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">© 2024 La Sainte Bibliothèque. Tous droits réservés.</span>
+  </div>
+</footer>

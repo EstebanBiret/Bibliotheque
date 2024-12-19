@@ -1,0 +1,78 @@
+/* account.component.css */
+.account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  max-width: 600px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.info-section {
+  flex-grow: 1;
+}
+
+.loading-message {
+  text-align: center;
+  color: #555;
+  font-style: italic;
+}
+
+.logout-button, .compte-button {
+  margin-top: 20px;
+  margin-left:5px;
+  margin-right:5px;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button {
+  background-color: #d9534f;
+}
+
+.compte-button {
+  background-color: #5bc0de;
+}
+
+.logout-button:hover {
+  background-color: #c9302c;
+}
+
+.compte-button:hover {
+  background-color: #46b8da;
+}
+
+.logout-container {
+  text-align: center;
+  margin-top: 10px;
+}

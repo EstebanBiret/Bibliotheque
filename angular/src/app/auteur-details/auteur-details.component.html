@@ -1,0 +1,52 @@
+<!-- <div *ngIf="selectedAuteur" class="container mt-4">
+  <h2 class="mb-4">Détails de l'auteur</h2>
+
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="selectedAuteur.photo" alt="photo de l'auteur" class="img-thumbnail" style="width: 100%; height: auto;">
+    </div>
+    <div class="col-md-8">
+      <p><strong>Prénom :</strong> {{ selectedAuteur.prenom }}</p>
+      <p><strong>Nom :</strong> {{ selectedAuteur.nom }}</p>
+      <p><strong>Date de naissance :</strong> {{ selectedAuteur.date_naissance | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Nationalité :</strong> {{ selectedAuteur.nationalite }}</p>
+
+      <div class="mt-4">
+        <p><strong>Description :</strong></p>
+        <p>{{ selectedAuteur.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-secondary mt-4" (click)="retournerALaListe()">Retourner à la liste des auteurs</button>
+</div> -->
+<div *ngIf="selectedAuteur" class="category-details-container">
+  <h2>Détails de l'auteur</h2>
+  <div class="category-details">
+    <div class="category-detail">
+      <img [src]="selectedAuteur.photo" alt="photo de l'auteur" class="img-thumbnail" style="width: 200px;">
+    </div>
+    <div class="category-detail">
+      <strong>Prénom :</strong> 
+      <p>{{ selectedAuteur.prenom }}</p>
+    </div>
+    <div class="category-detail">
+      <strong>Nom :</strong> 
+      {{ selectedAuteur.nom }}
+    </div>
+    <div class="category-detail">
+      <strong>Date de naissance :</strong> 
+      {{ selectedAuteur.date_naissance | date:'dd/MM/yyyy' }}
+    </div>
+    <div class="category-detail">
+      <strong>Nationalité :</strong> 
+      {{ selectedAuteur.nationalite }}
+    </div>
+    <div class="category-detail">
+      <strong>Description :</strong>
+      <p>{{ selectedAuteur.description }}</p>
+    </div>
+  </div><br><br>
+
+  <button class="btn-return-to-list" (click)="retournerALaListe()">Retourner à la liste des auteurs</button>
+</div>

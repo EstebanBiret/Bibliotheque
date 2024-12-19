@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2>Mes Réservations</h2>
+
+    <div *ngIf="reservations.length > 0; else noResas">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let reservation of reservations">
+          <div class="emprunt-item">
+            <div class="emprunt-details">
+              <span class="emprunt-title">{{ getLivreTitle(reservation) }}</span>
+              <img [src]="(getLivrePhotoCouverture(reservation) ? getLivrePhotoCouverture(reservation) : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg')" alt="image" class="img-fluid mb-4">
+            </div>
+            <div class="emprunt-info">
+              <span class="reservation"><strong>Date de réservation : </strong>{{ reservation.date_resa | date }}</span><br>
+            </div>
+            <div class="d-flex justify-content-end align-items-center" id="reservations-button">
+                <button class="btn btn-danger" (click)="deleteResa(reservation)">Supprimer</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+      <button class="resa-button btn btn-primary" (click)="retourCompte()">Retour</button>
+    </div>
+
+    <ng-template #noResas>
+        <p>Vous n'avez aucune réservation !</p>
+        <div class="image-container">
+          <img src="assets/no_resa_emprunt.jpg" width="200px" alt="Aucune réservation">
+          <button class="resa-button btn btn-primary" (click)="retourLivres()">Découvrir nos livres</button>
+        </div>
+    </ng-template>
+
+    <br><br><br>
+</div>

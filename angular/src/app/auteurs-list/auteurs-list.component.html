@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h2>Liste des Auteurs</h2>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let auteur of auteurs">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="author-names">{{ auteur.prenom }} {{ auteur.nom }}</span>
+      </div>
+      <div class="d-flex justify-content-end align-items-center" id="auteur-buttons">
+        <button type="button" class="btn btn-success" (click)="onAuteurLivresClick(auteur)">Livres</button>
+        <button type="button" class="btn btn-primary" (click)="onAuteurDetailsClick(auteur)" >Détails</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<br><br><br>

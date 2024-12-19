@@ -1,0 +1,63 @@
+.emprunt-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.emprunt-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align:center;
+}
+
+.emprunt-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.emprunt-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation {
+  font-size: 14px;
+  color: #555;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  max-height: 100px;
+}
+
+.resa-button {
+    margin-top: 20px;
+    margin-left:5px;
+    margin-right:5px;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5bc0de;
+
+    &:hover {
+        background-color: #46b8da;
+    }
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Aligne les éléments au centre horizontalement */
+  justify-content: center; /* Aligne les éléments au centre verticalement */
+}
+
+.resa-button {
+  margin-top: 10px; /* Marge supplémentaire au-dessus du bouton si nécessaire */
+}

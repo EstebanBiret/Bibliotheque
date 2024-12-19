@@ -1,0 +1,92 @@
+<div class="container mt-4">
+
+  <div id="title-language">
+    <div class="input-group">
+      <input type="text" class="form-control" id="book-title" placeholder="Titre du livre" [(ngModel)]="selectedTitre" (keyup.enter)="onTitleSearch()">
+      <button class="btn btn-primary" type="button" (click)="onTitleSearch()"> --> </button>
+    </div>
+
+    <div id="research-language-select">
+        <select class="form-select" [(ngModel)]="selectedLangue" (change)="onLangueChange()">
+            <option value="toutes_langues" >Toutes les langues</option>
+            <option *ngFor="let langue of langues" [value]="langue">{{ langue }}</option>
+        </select>
+    </div>
+
+    <div id="disponible-checkbox">
+      <input type="checkbox" id="checkbox-disponible" class="nannan" [(ngModel)]="onlyDisponiblesBooks" (change)="onCheckboxChange()">
+      <label for="checkbox-disponible">Seulement livres disponibles</label>
+    </div>
+
+
+    <button class="btn btn-danger" (click)="effacerFiltres()">Effacer tous les filtres</button>
+
+  </div>
+
+  <h3>Catégories : </h3>
+  <div id="research-categories-buttons" class="button-container">
+    <button *ngFor="let categorie of categories" class="btn btn-common btn-category" [class.active]="isSelectedCategorie(categorie)" (click)="onCategorieClick(categorie)">
+      {{ categorie.nom }}
+    </button>
+  </div>
+
+  <h3>Auteurs : </h3>
+  <div id="research-auteurs-buttons" class="button-container">
+    <button *ngFor="let auteur of auteurs" class="btn btn-common btn-auteur" [class.active]="isSelectedAuteur(auteur)" (click)="onAuteurClick(auteur)">
+      {{ auteur.prenom }} {{ auteur.nom }}
+    </button>
+  </div>
+
+  <div id="research-results">
+    <div id="pages">
+      <button id="pagePrec" class="btn btn-primary" (click)="pagePrecedente()"><<</button>
+      <button id="numPage" class="btn btn-secondary">Page actuelle : {{ this.page }}</button>
+      <button id="pageSuiv" class="btn btn-primary" (click)="pageSuivante()">>></button>
+      <br><br>
+    </div>
+
+    <h3>Résultats de la recherche :</h3>
+
+    <div *ngIf="livres.length > 0; else noResults">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let livre of livres">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ livre.titre }}</h5>
+              <h6 class="card-subtitle text-muted">Sorti le : {{ livre.date_sortie | date}}</h6>
+            </div>
+            <div class="card-img-container">
+              <img [src]="(livre.photo_couverture ? livre.photo_couverture : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg')" alt="image" class="img-fluid">
+            </div>
+            <div class="card-body">
+              <div *ngIf="livre.disponible; else indisponible">
+                <p class="card-text text-success">Disponible</p><br>
+              </div>
+              <ng-template #indisponible>
+                <p class="card-text text-danger">Indisponible</p><br>
+              </ng-template>
+              <p class="card-text">Catégorie(s) :  <ng-container *ngFor="let categorie of livre.categories; let last = last">
+                {{categorie.nom}} {{last ? '' : ', ' }}
+              </ng-container></p>
+              <p class="card-text">Auteur(s) :  <ng-container *ngFor="let auteur of livre.auteurs; let last = last">
+                {{auteur.prenom }} {{ auteur.nom}} {{last ? '' : ', ' }}
+              </ng-container></p>
+            </div>
+            <div class="card-body d-flex justify-content-between">
+              <button type="button" class="btn btn-outline-info" (click)="onLivreClick(livre)">Détails</button>
+              <div style="width: 10px;"></div>
+              <button *ngIf="isSessionId" type="button" [disabled]="!livre.disponible" class="btn btn-outline-success" (click)="reserver(livre)">Réserver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noResults>
+      <p>Aucun livre trouvé...</p>
+      <img src="assets/no-results.png" width="200px" alt="No books found" style="margin-top: 15px;">
+    </ng-template>
+  </div>
+</div>
+
+<br><br><br>

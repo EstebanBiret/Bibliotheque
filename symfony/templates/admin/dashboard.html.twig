@@ -1,0 +1,55 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content %}
+    <div class="content-header">
+        <div class="content-body">
+            <h1>Tableau de bord</h1>
+            <h3>Emprunts en cours par date de retour</h3>
+
+            <table class="table">
+            (<strong>gras = retard</strong>)
+                <thead>
+                    <tr>
+                        <th>Adhérent</th>
+                        <th>Date Emprunt</th>
+                        <th>Date Retour</th>
+                        <th>Livre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for emprunt in emprunts %}
+                        {% if not emprunt.isretourne %}
+                            {% if emprunt.dateretour|date('Y-m-d') < 'now'|date('Y-m-d') %}
+                                <tr>
+                                {% if emprunt.adherent is null %}
+                                    <td><strong>Aucun</strong></td>
+                                {% else %}
+                                    <td><strong>{{ emprunt.adherent.getNom() }} {{ emprunt.adherent.getPrenom() }}</strong></td>
+                                {% endif %}
+                                <td><strong>{{ emprunt.dateemprunt|date('d/m/Y') }}</strong></td>
+                                <td><strong>{{ emprunt.dateretour|date('d/m/Y') }}</strong></td>
+                                <td><strong>{{ emprunt.livre.titre }}</strong></td>
+                            </tr>
+                            {% else %}
+                                <tr>
+                                {% if emprunt.adherent is null %}
+                                    <td>Aucun</td>
+                                {% else %}
+                                    <td>{{ emprunt.adherent.getNom() }} {{ emprunt.adherent.getPrenom() }}</td>
+                                {% endif %}
+                                <td>{{ emprunt.dateemprunt|date('d/m/Y') }}</td>
+                                <td>{{ emprunt.dateretour|date('d/m/Y') }}</td>
+                                <td>{{ emprunt.livre.titre }}</td>
+                            </tr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if is_granted('ROLE_RESPONSABLE') %}
+                <h4>{{ finishedCount }} emprunts finis ({{ finishedPercentage|number_format(2, '.') }}%)</h4>
+                <h4>{{ lateCount }} emprunts en retard ({{ latePercentage|number_format(2, '.') }}%)</h4>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

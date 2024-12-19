@@ -1,0 +1,49 @@
+.category-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer horizontalement */
+    justify-content: center; /* Centrer verticalement */
+    height: 90vh; /* Hauteur de la fenêtre visible */
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #333;
+  }
+
+  .category-details {
+    margin-top: 20px;
+    padding: 20px; /* Ajout du padding ici */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .category-detail {
+    margin-bottom: 15px;
+  }
+  
+  .category-detail strong {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .btn-return-to-list {
+    margin-top: 20px;
+    margin-left:5px;
+    margin-right:5px;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5bc0de;
+  
+    &:hover {
+        background-color: #46b8da;
+    }
+  }

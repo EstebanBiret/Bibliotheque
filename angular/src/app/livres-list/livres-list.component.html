@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h2>Liste des Livres</h2>
+
+  <div id="pages">
+    <button id="pagePrec" class="btn btn-primary" (click)="pagePrecedente()"><<</button>
+    <button id="numPage" class="btn btn-secondary">Page actuelle : {{ this.currentPage }}</button>
+    <button id="pageSuiv" class="btn btn-primary" (click)="pageSuivante()">>></button>
+    <br><br>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let livre of livres">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ livre.titre }}</h5>
+          <h6 class="card-subtitle text-muted">Sorti le : {{ livre.date_sortie | date}}</h6>
+        </div>
+        <div class="card-img-container">
+          <img [src]="(livre.photo_couverture ? livre.photo_couverture : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg')" alt="image" class="img-fluid">
+        </div>
+        <div class="card-body">
+          <div *ngIf="livre.disponible; else indisponible">
+            <p class="card-text text-success">Disponible</p><br>
+          </div>
+          <ng-template #indisponible>
+            <p class="card-text text-danger">Indisponible</p><br>
+          </ng-template>
+          <p class="card-text"><strong>Catégorie(s) :</strong>
+            <span *ngFor="let categorie of livre.categories; let last = last">
+              {{ categorie.nom }}{{ !last ? ', ' : '' }}
+            </span>
+          </p>
+          <p class="card-text"><strong>Auteur(s) :</strong>
+            <span *ngFor="let auteur of livre.auteurs; let last = last">
+              {{ auteur.prenom }} {{ auteur.nom }}{{ !last ? ', ' : '' }}
+            </span>
+        </div>
+        <div class="card-body d-flex justify-content-between">
+          <button type="button" class="btn btn-outline-info" (click)="onLivreClick(livre)">Détails</button>
+          <div style="width: 10px;"></div>
+          <button *ngIf="isSessionId" type="button" [disabled]="!livre.disponible" class="btn btn-outline-success" (click)="reserver(livre)">Réserver</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br>

@@ -1,0 +1,33 @@
+
+<div class="account-container">
+  <h2>Mon Compte</h2>
+
+  <div *ngIf="userProfile">
+    <div class="user-details">
+      <div class="profile-image">
+        <img [src]="isExternalImage(userProfile.photo) ? userProfile.photo : 'https://127.0.0.1:8008/uploads/photos/' + userProfile.photo" width="200" height="200" alt="Photo de profil">
+      </div>
+      <div class="info-section">
+        <p><strong>Nom:</strong> {{ userProfile.nom }}</p>
+        <p><strong>Prénom:</strong> {{ userProfile.prenom }}</p>
+        <p><strong>Date de naissance:</strong> {{ userProfile.date_naissance | date:'shortDate' }}</p>
+        <p><strong>Date d'adhésion:</strong> {{ userProfile.date_adhesion | date:'shortDate' }}</p>
+        <p><strong>Email:</strong> {{ userProfile.email }}</p>
+        <p><strong>Adresse:</strong> {{ userProfile.adresse }}</p>
+        <p><strong>Téléphone:</strong> {{ userProfile.telephone }}</p>
+      </div>
+    </div>
+
+    <div class="logout-container">
+      <button class="compte-button" (click)="editUserProfile()">Modifier mes infos</button>
+      <button class="compte-button" (click)="getReservations()">Mes réservations</button>
+      <button class="compte-button" (click)="getEmprunts()">Mes emprunts</button>
+      <button class="logout-button" (click)="logout()">Déconnexion</button>
+    </div>
+    
+  </div>
+
+  <div *ngIf="!userProfile">
+    <p class="loading-message">Chargement en cours...</p>
+  </div>
+</div>

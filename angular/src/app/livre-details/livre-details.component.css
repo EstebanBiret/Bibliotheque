@@ -1,0 +1,15 @@
+.btn-return-to-list {
+    margin-top: 20px;
+    margin-left:5px;
+    margin-right:5px;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5bc0de;
+  
+    &:hover {
+        background-color: #46b8da;
+    }
+  }

@@ -1,0 +1,15 @@
+<div *ngIf="selectedCategorie" class="category-details-container">
+  <h2>Détails de la catégorie</h2>
+  <div class="category-details">
+      <div class="category-detail">
+          <strong>Titre :</strong>
+          <p>{{ selectedCategorie.nom }}</p>
+      </div>
+      <div class="category-detail">
+          <strong>Description :</strong>
+          <p>{{ selectedCategorie.description }}</p>
+      </div>
+  </div><br><br>
+
+  <button class="btn-return-to-list" (click)="retournerALaListe()">Retourner à la liste des catégories</button>
+</div>

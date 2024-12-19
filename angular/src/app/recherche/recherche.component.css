@@ -1,0 +1,103 @@
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: rgba(179, 179, 179, 0.397);
+}
+
+.list-group {
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-common {
+  width: 150px;
+}
+
+#research-categories-buttons {
+    margin-bottom: 20px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#research-auteurs-buttons {
+    margin-bottom: 20px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#research-results {
+    text-align: center;
+}
+
+.btn-category {
+  background-color: white;
+  color: blue;
+  border: 2px solid blue;
+  margin-bottom: 15px;
+
+  &.active {
+    background-color: blue;
+    color: white;
+  }
+}
+
+.btn-auteur {
+  background-color: white;
+  color: green;
+  border: 2px solid green;
+  margin-bottom: 15px;
+
+  &.active {
+    background-color: green;
+    color: white;
+  }
+}
+
+#title-language {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  width: 30%;
+}
+
+#disponible-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nannan {
+  width: 20px;
+  height: 20px;
+}
+
+#pages {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}

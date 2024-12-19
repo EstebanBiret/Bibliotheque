@@ -1,0 +1,86 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.emprunt-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.emprunt-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align:center;
+}
+
+.emprunt-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.emprunt-date {
+  font-size: 14px;
+  color: #555;
+}
+
+.emprunt-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  max-height: 100px;
+}
+
+.back-button {
+  margin-top: 20px;
+    margin-left:5px;
+    margin-right:5px;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5bc0de;
+
+    &:hover {
+        background-color: #46b8da;
+    }
+}
+
+.en-retard {
+  color: red;
+}
+
+.resa-button {
+  margin-top: 20px;
+  margin-left:5px;
+  margin-right:5px;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #5bc0de;
+
+  &:hover {
+      background-color: #46b8da;
+  }
+}

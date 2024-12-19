@@ -1,0 +1,24 @@
+<div *ngIf="selectedLivre" class="container mt-4">
+  <h2 class="mb-4">Détails du Livre</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <img [src]="(selectedLivre.photo_couverture ? selectedLivre.photo_couverture : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg')" alt="image" class="img-fluid mb-4">
+    </div>
+    <div class="col-md-6">
+      <p class="lead">Titre : {{ selectedLivre.titre }}</p>
+      <p><strong>Date de sortie :</strong> {{ selectedLivre.date_sortie | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Langue :</strong> {{ selectedLivre.langue }}</p>
+      <p><strong>Catégorie(s) :</strong>
+        <span *ngFor="let categorie of selectedLivre.categories; let last = last">
+          {{ categorie.nom }}{{ !last ? ', ' : '' }}
+        </span>
+      </p>
+      <p><strong>Auteur(s) :</strong>
+        <span *ngFor="let auteur of selectedLivre.auteurs; let last = last">
+          {{ auteur.prenom }} {{ auteur.nom }}{{ !last ? ', ' : '' }}
+        </span>
+      </p>
+      <button class="btn-return-to-list" (click)="retournerALaListe()">Retourner à la liste des livres</button>
+    </div>
+  </div>
+</div>
